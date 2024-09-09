@@ -1,5 +1,6 @@
 package com.springBootCourseForDummies.Application.dependencyInjectionTutorial.withDependencyInjection;
 
+import com.springBootCourseForDummies.Application.dependencyInjectionTutorial.withDependencyInjection.model.CircularDependency;
 import com.springBootCourseForDummies.Application.dependencyInjectionTutorial.withDependencyInjection.config.AppConfig;
 import com.springBootCourseForDummies.Application.dependencyInjectionTutorial.withDependencyInjection.model.AdaptiveModernMessageSender;
 import com.springBootCourseForDummies.Application.dependencyInjectionTutorial.withDependencyInjection.model.MessageSender;
@@ -19,5 +20,9 @@ public class App {
         // Setter Based Dependency Injection
         AdaptiveModernMessageSender object1 = context.getBean(AdaptiveModernMessageSender.class);
         object1.sendMessage("I love to write code in java");
+
+        // circular Dependency Problem
+        CircularDependency dependency = context.getBean(CircularDependency.class);
+        System.out.println(dependency);
     }
 }
